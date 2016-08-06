@@ -18,7 +18,8 @@ module.exports = function(grunt) {
                     loaders: [
                         {
                             test: /\.jsx?$/,
-                            loader: "babel-loader"
+                            loader: "babel-loader",
+                            query: {compact: false}
                         }
                     ]
                 },

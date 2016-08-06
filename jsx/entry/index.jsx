@@ -11,7 +11,7 @@ if (container){
     ReactDOM.render(
         <Layout>
             <Block>
-                <Inputs name="testInput" placeholder="Let`s test it!!!" />
+                <Inputs />
             </Block>
         </Layout>
             , container
