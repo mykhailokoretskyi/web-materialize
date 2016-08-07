@@ -7,12 +7,26 @@ import {
     PasswordInput,
     Switch,
     RadioButton,
-    Checkbox
+    Checkbox,
+    Modal,
+    ModalContent,
+    ModalFooter,
+    Button,
+    FlatButton,
+    LargeButton,
+    FloatingButton
 } from 'react-html-components';
 
 export default class Inputs extends React.Component{
     constructor(props){
         super(props);
+
+        this._triggerModal = this._triggerModal.bind(this);
+    }
+
+    _triggerModal(e){
+        console.log("Open modal");
+        this.refs.modalBS.open();
     }
 
     render(){
@@ -86,6 +100,64 @@ export default class Inputs extends React.Component{
                             <label htmlFor="first_name">First Name</label>
                     </div>
                 </div>
+
+
+
+
+                <div className="row">
+                    <div className="col s6">
+                        <Button classes={["waves-effect", "waves-light"]}
+                                clickCallback={this._triggerModal}>Modal</Button>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col s6">
+                        <LargeButton classes={["waves-effect", "waves-light"]}
+                                clickCallback={function(){alert('clicked')}}>Large</LargeButton>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col s6">
+                        <FlatButton classes={["waves-effect", "waves-light"]}
+                                     clickCallback={function(){alert('clicked')}}>Flat</FlatButton>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col s6">
+                        <FloatingButton classes={["waves-effect", "waves-light"]}
+                                     clickCallback={function(){alert('clicked')}}>Floating</FloatingButton>
+                    </div>
+                </div>
+
+
+
+                <Modal ref="modal">
+                    <ModalContent>
+                        <h4>Modal Header</h4>
+                        <p>A bunch of text</p>
+                    </ModalContent>
+                    <ModalFooter>
+                        <a href="#!" className=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                    </ModalFooter>
+                </Modal>
+                <Modal type="modal-fixed-footer" ref="modalFF">
+                    <ModalContent>
+                        <h4>Modal Header</h4>
+                        <p>A bunch of text</p>
+                    </ModalContent>
+                    <ModalFooter>
+                        <a href="#!" className=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                    </ModalFooter>
+                </Modal>
+                <Modal type="bottom-sheet" ref="modalBS">
+                    <ModalContent>
+                        <h4>Modal Header</h4>
+                        <p>A bunch of text</p>
+                    </ModalContent>
+                    <ModalFooter>
+                        <FlatButton classes={["modal-action","modal-close","waves-effect","waves-green"]}>Agree</FlatButton>
+                    </ModalFooter>
+                </Modal>
             </div>
         );
     }
